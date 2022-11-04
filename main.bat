@@ -13,7 +13,7 @@ goto check_Permissions
 		if /I "%Input%"=="scan" goto scan_Health
 		if /I "%Input%"=="memory" goto check_Memory
 		::whatever option they entered isn't in above
-		echo The only two options are "scan" and "memory"
+		echo The only two options are "scan" and "memory".
 		goto pause_Forever
 	) else (
 		echo Failure: Current permissions inadequate. Please run as Administrator.
