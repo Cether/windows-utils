@@ -7,7 +7,14 @@ goto check_Permissions
 	net session >nul 2>&1
 	if %errorLevel% == 0 (
 		echo Success: Administrative permissions confirmed.
-		::here i need to ask if they want to run a health scan or check memory
+		
+		echo Would you like to scan the health of your Windows install or check the health of your memory?
+		set /p Input=Enter scan or memory:
+		if /I "%Input%"=="scan" goto scan_Health
+		if /I "%Input%"=="memory" goto check_Memory
+		::whatever option they entered isn't in above
+		echo The only two options are "scan" and "memory"
+		goto pause_Forever
 	) else (
 		echo Failure: Current permissions inadequate. Please run as Administrator.
 		goto pause_Forever
@@ -35,3 +42,4 @@ goto check_Permissions
 
 :pause_Forever
 	pause >nul
+	exit /b
