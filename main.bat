@@ -8,12 +8,12 @@ goto check_Permissions
 	if %errorLevel% == 0 (
 		echo Success: Administrative permissions confirmed.
 		
-		echo Would you like to scan the health of your Windows install or check the health of your memory?
-		set /p Input=Enter scan or memory:
+		echo Would you like to scan the health of your Windows install or check the health of your ram sticks?
+		set /p Input=Enter scan or ram:
 		if /I "%Input%"=="scan" goto scan_Health
-		if /I "%Input%"=="memory" goto check_Memory
+		if /I "%Input%"=="ram" goto check_Memory
 		::whatever option they entered isn't in above
-		echo The only two options are "scan" and "memory".
+		echo The only two options are "scan" and "ram".
 		goto pause_Forever
 	) else (
 		echo Failure: Current permissions inadequate. Please run as Administrator.
